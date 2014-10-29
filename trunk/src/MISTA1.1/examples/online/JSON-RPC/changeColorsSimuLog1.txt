@@ -1,1 +1,0 @@
-SEQUENCE (INIT 0) changeColor 4, changeColor 5
