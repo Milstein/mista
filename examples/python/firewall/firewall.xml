@@ -2,7 +2,19 @@
 <pnml>
 <net id="Net-One" type="PrT net">
 <tokenclass id="Default" enabled="true" red="0" green="0" blue="0"/>
-<labels x="50" y="34" width="180" height="31" border="true">
+<labels x="740" y="414" width="100" height="13" border="true">
+<text/>
+</labels>
+<labels x="825" y="205" width="310" height="73" border="true">
+<text>Add firewall rule</text>
+</labels>
+<labels x="837" y="50" width="295" height="105" border="true">
+<text>addFlowRule
+        when firewall is disabled, adding a flow rule will result in a PERMIT rule in flow table
+        when firewall is enabled and firewall table is empty, adding a flow rule will result in a DENY rule in flow table
+</text>
+</labels>
+<labels x="52" y="36" width="182" height="33" border="true">
 <text>INIT firewallStatus(0)</text>
 </labels>
 <place id="P1">
@@ -285,7 +297,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="431" y="158" curvePoint="false"/>
-<arcpath id="001" x="497" y="152" curvePoint="true"/>
+<arcpath id="001" x="499" y="154" curvePoint="true"/>
 <arcpath id="002" x="562" y="172" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -299,7 +311,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="407" y="173" curvePoint="false"/>
-<arcpath id="001" x="347" y="212" curvePoint="true"/>
+<arcpath id="001" x="349" y="214" curvePoint="true"/>
 <arcpath id="002" x="271" y="182" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -378,7 +390,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="561" y="182" curvePoint="false"/>
-<arcpath id="001" x="497" y="212" curvePoint="true"/>
+<arcpath id="001" x="499" y="214" curvePoint="true"/>
 <arcpath id="002" x="428" y="171" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -392,7 +404,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="272" y="172" curvePoint="false"/>
-<arcpath id="001" x="347" y="152" curvePoint="true"/>
+<arcpath id="001" x="349" y="154" curvePoint="true"/>
 <arcpath id="002" x="402" y="158" curvePoint="true"/>
 <type value="normal"/>
 </arc>
