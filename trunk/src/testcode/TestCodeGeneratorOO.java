@@ -209,6 +209,9 @@ public class TestCodeGeneratorOO extends TestCodeGenerator{
 			out.print(getAlphaCode());
 			String testClassName = FileUtil.getTestClassName(transitionTree);
 			int testNo = 1;
+			if (systemOptions.getLanguage()==TargetLanguage.PYTHON){
+				out.print("\n\tsuite = unittest.TestSuite()");
+			}					
 			for (TransitionTreeNode leafNode : leaves){
 				transitionTree.checkForCancellation();
 				if (systemOptions.getLanguage()==TargetLanguage.PYTHON)
