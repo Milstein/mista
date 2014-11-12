@@ -13,7 +13,7 @@ public class TargetLanguagePython extends TargetLanguageOO{
 		this.importKeyword = "import";
 		this.methodBodyStart=":";
 		this.methodBodyEnd="";
-		this.testSuiteMethodSignature="\nif __name__ == '__main__':\n\tsuite = unittest.TestSuite()";
+		this.testSuiteMethodSignature="\nif __name__ == '__main__'";
 		this.setUpSignature = "def setUp";
 		this.setUpMethodName = "setUp";
 		this.tearDownSignature = "def tearDown";
