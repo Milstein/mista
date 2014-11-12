@@ -203,14 +203,18 @@ public class TestCodeGeneratorOO extends TestCodeGenerator{
 	}
 
 	private void getTestSuiteSegment(ArrayList<TransitionTreeNode> leaves, PrintWriter out) throws CancellationException {
-		if (!systemOptions.useTestFramework()){ 
+		if (!systemOptions.useTestFramework() || systemOptions.getLanguage()==TargetLanguage.PYTHON){ 
 			out.print(newLine+ language.getTestSuiteMethodSignature() +
 					language.getMethodThrowException() + language.getMethodBodyStart());
 			out.print(getAlphaCode());
+			String testClassName = FileUtil.getTestClassName(transitionTree);
 			int testNo = 1;
 			for (TransitionTreeNode leafNode : leaves){
 				transitionTree.checkForCancellation();
-				out.print(newLine + tab + language.getTestMethodCall(getTestId(testNo, leafNode)));
+				if (systemOptions.getLanguage()==TargetLanguage.PYTHON)
+					out.print(newLine + language.getTestMethodCall(testClassName, ""+testNo, getTestId(testNo, leafNode)));					
+				else
+					out.print(newLine + tab + language.getTestMethodCall(getTestId(testNo, leafNode)));
 				testNo++;
 			}
 			if (mid.hasOmegaBlock())
