@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<pnml>
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
 <net id="Net-One" type="PrT net">
 <tokenclass id="Default" enabled="true" red="0" green="0" blue="0"/>
-<labels x="53" y="37" width="183" height="34" border="true">
+<labels x="54" y="38" width="184" height="35" border="true">
 <text>INIT firewallStatus(0)</text>
 </labels>
 <place id="P1">
@@ -105,7 +104,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="431" y="159" curvePoint="false"/>
-<arcpath id="001" x="500" y="155" curvePoint="true"/>
+<arcpath id="001" x="501" y="156" curvePoint="true"/>
 <arcpath id="002" x="562" y="172" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -119,7 +118,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="408" y="174" curvePoint="false"/>
-<arcpath id="001" x="350" y="215" curvePoint="true"/>
+<arcpath id="001" x="351" y="216" curvePoint="true"/>
 <arcpath id="002" x="271" y="182" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -133,7 +132,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="561" y="182" curvePoint="false"/>
-<arcpath id="001" x="500" y="215" curvePoint="true"/>
+<arcpath id="001" x="501" y="216" curvePoint="true"/>
 <arcpath id="002" x="428" y="171" curvePoint="true"/>
 <type value="normal"/>
 </arc>
@@ -147,7 +146,7 @@
 <value>false</value>
 </tagged>
 <arcpath id="000" x="272" y="172" curvePoint="false"/>
-<arcpath id="001" x="350" y="155" curvePoint="true"/>
+<arcpath id="001" x="351" y="156" curvePoint="true"/>
 <arcpath id="002" x="402" y="159" curvePoint="true"/>
 <type value="normal"/>
 </arc>
