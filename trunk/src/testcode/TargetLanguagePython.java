@@ -13,7 +13,7 @@ public class TargetLanguagePython extends TargetLanguageOO{
 		this.importKeyword = "import";
 		this.methodBodyStart=":";
 		this.methodBodyEnd="";
-		this.testSuiteMethodSignature="def suite()";
+		this.testSuiteMethodSignature="\nif __name__ == '__main__':\n\tsuite = unittest.TestSuite()";
 		this.setUpSignature = "def setUp";
 		this.setUpMethodName = "setUp";
 		this.tearDownSignature = "def tearDown";
@@ -64,7 +64,8 @@ public class TargetLanguagePython extends TargetLanguageOO{
 	}
 	
 	public String generateAssertStatement(boolean useTestFramework, String condition, String message){
-		return "self.assert_("+condition+", "+message.replace('"',  '\'')+")";
+//		return "self.assert_("+condition+", "+message.replace('"',  '\'')+")";
+		return "self.assertTrue("+condition+")";
 	}
 	
 	public String getHeader(String packageCode, String importCode){
@@ -74,7 +75,7 @@ public class TargetLanguagePython extends TargetLanguageOO{
 	}
 	
 	public String getTestMethodSignature(String testID){
-		return "def "+ testMethodNamePrefix + testID + "() " + methodThrowException;
+		return "def "+ testMethodNamePrefix + testID + "(self) " + methodThrowException;
 	}
 
 	public String getTestMethodCall(String testID){
@@ -82,18 +83,17 @@ public class TargetLanguagePython extends TargetLanguageOO{
 	}
 
 	public String getTestMethodCall(String className, String index, String testID){
-		String reference = "tester"+index;
-		return className+" "+reference+" = new "+className+"();\n"
-		+ reference+"."+testMethodNamePrefix + testID + "();";
+		return "suite.addTest("+className+"(\""+testMethodNamePrefix + testID + "\"))";
 	}
 
 	public String createMainAndClassEnding(String newLine, String tab, String testerClass, boolean includeMain){
-		return 
-			"\n\tif __name__ == '__main__':"+
-			"\n\t\tsuite = unittest.TestSuite()"+		
-			"\n\t\tsuite.addTest(unittest.makeSuite("+testerClass+"))"+
-			"\n\t\tunittest.TextTestRunner(verbosity=2).run(suite)";
-	}
+		return "";
+/*		return 
+			"\nif __name__ == '__main__':"+
+			"\n\tsuite = unittest.TestSuite()"+		
+			"\n\tsuite.addTest(unittest.makeSuite("+testerClass+"))"+
+			"\n\tunittest.TextTestRunner(verbosity=2).run(suite)";
+*/	}
 
 	public String endClassWithMainMathod(String newLine, String tab, String statement){
 		return newLine+ "public static void main(String[] args) throws Exception {" 
