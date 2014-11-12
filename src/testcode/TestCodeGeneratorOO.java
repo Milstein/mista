@@ -48,10 +48,10 @@ public class TestCodeGeneratorOO extends TestCodeGenerator{
 			testSuiteWriter.print(getSetupCode()); 
 			testSuiteWriter.print(getTearDownCode());
 			testSuiteWriter.print(language.getAssertDefinition()); 
-			getTestCaseSegment(allTests, testSuiteWriter);
-			getTestSuiteSegment(allTests, testSuiteWriter); 	// include alpha/omega code
 			if (mid.hasHelperCode())
 				testSuiteWriter.print("\n"+newLine+mid.getHelperCode().replaceAll("\n", newLine));
+			getTestCaseSegment(allTests, testSuiteWriter);
+			getTestSuiteSegment(allTests, testSuiteWriter); 	// include alpha/omega code
 			testSuiteWriter.print(language.createMainAndClassEnding(newLine, tab, FileUtil.getTestClassName(transitionTree), !systemOptions.useTestFramework())); 
 			if (mid.hasPackageBlock()) 
 				testSuiteWriter.print(language.getEndOfNameSpace());
@@ -217,6 +217,8 @@ public class TestCodeGeneratorOO extends TestCodeGenerator{
 					out.print(newLine + tab + language.getTestMethodCall(getTestId(testNo, leafNode)));
 				testNo++;
 			}
+			if (systemOptions.getLanguage()==TargetLanguage.PYTHON)
+				out.print("\n\tunittest.TextTestRunner(verbosity=2).run(suite)");			
 			if (mid.hasOmegaBlock())
 				out.print(newLine+ tab + mid.getOmegaBlock().replace("\n", newLine+tab));
 			out.print(newLine+language.getMethodBodyEnd()+"\n");
