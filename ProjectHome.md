@@ -1,0 +1,7 @@
+MISTA supports automated generation of executable test code. It is suitable for function testing, security testing, acceptance testing, GUI testing, and programmer testing.
+1) It uses visual notations for building test models, such as function nets and finite state machines. Function nets, which are lightweight high-level Petri nets, can specify both control-oriented and data-oriented test models. They can be animated and verified.
+2) It provides test generators for comprehensive coverage criteria of test models, including reachability coverage, reachability with sneak paths, state coverage, transition coverage, depth coverage, goal coverage, random walk, counterexamples of model checking, deadlock/termination state coverage, and given sequences. Pairwise and partial order techniques are options for reducing the size of test suites.
+3) It supports a number of languages (Java, C, C++, C#, PHP, Python, HTML, and VB) and test frameworks (e.g., xUnit, Selenium IDE, and Robot Framework) for offline test execution.
+4) It supports on-the-fly testing and online execution of generated tests through Selenium WebDriver or a RPC protocol (JSON-RPC or XML-RPC).
+
+More information can be found at http://cs.boisestate.edu/~dxu/research/MBT.html
